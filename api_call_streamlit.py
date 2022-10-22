@@ -31,11 +31,8 @@ def reemovNestings(xx):
             reemovNestings(xx)
             return data == xx[0]
 
-@st.cache
-@st.experimental_memo
-def get_data(data):
-        dt = requests.get(data).content
-    
+
+dt = requests.get(data).content    
 df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
 st.dataframe(df)
     
