@@ -39,8 +39,7 @@ def get_data(data):
             df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
         except NameError:
             pass
-        return df
+#         return df
 
-df = df
 st.dataframe(df)
     
