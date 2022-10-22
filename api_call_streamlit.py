@@ -29,7 +29,7 @@ def reemovNestings(xx):
     for i in xx:
         if type(i) == list:
             reemovNestings(xx)
-#             return data == xx[0]
+            return data == xx[0]
 
 # df = pd.read_csv(io.StringIO(xx[0].decode('utf-8')))
 
@@ -38,11 +38,11 @@ def reemovNestings(xx):
 def get_data(data):
         try:
             dt = requests.get(data).content
-#             df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
+            df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
 #         except NameError:
 #             pass
 #         return df
-df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
+# df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
 
 st.dataframe(df)
     
