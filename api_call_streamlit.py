@@ -1,6 +1,5 @@
 import json
 import streamlit as st
-#import utils
 import requests
 import pandas as pd
 import numpy as np
@@ -41,6 +40,7 @@ def get_data(data):
         except NameError:
             pass
         return df
-    
+
+df = df
 st.dataframe(df)
     
