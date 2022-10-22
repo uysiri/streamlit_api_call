@@ -20,7 +20,7 @@ for input in domain:
         url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both'
         x = requests.get(url).json()
         xx = x['body']
-    except Error:
+    except NameError:
         pass
         
 
@@ -35,8 +35,11 @@ def reemovNestings(xx):
 @st.cache
 @st.experimental_memo
 def get_data(data):
-        dt = requests.get(data).content
-        df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
+        try:
+            dt = requests.get(data).content
+            df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
+        except NameError:
+            pass
         return df
     
 st.dataframe(df)
