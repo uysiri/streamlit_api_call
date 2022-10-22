@@ -43,6 +43,5 @@ def get_data(data):
 #             pass
 #         return df
 # df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
-
 st.dataframe(df)
     
