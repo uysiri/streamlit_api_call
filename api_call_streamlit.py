@@ -28,10 +28,11 @@ for input in domain:
 def reemovNestings(xx):
     for i in xx:
         if type(i) == list:
-            reemovNestings(xx)
-            return data == xx[0]
-
-
+            reemovNestings(i)
+            return xx
+        
+f = reemovNestings(xx)
+data = f[0]
 dt = requests.get(data).content    
 df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
 st.dataframe(df)
