@@ -20,8 +20,7 @@ for input in domain:
         x = requests.get(url).json()
         xx = x['body']    
         
-@st.experimental_memo
-@st.cache
+
 def reemovNestings(xx):
     for i in xx:
         if type(i) == list:
