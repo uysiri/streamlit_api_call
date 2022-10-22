@@ -31,7 +31,7 @@ def reemovNestings(xx):
             reemovNestings(xx)
 #             return data == xx[0]
 
-df = pd.read_csv(io.StringIO(xx[0].decode('utf-8')))
+# df = pd.read_csv(io.StringIO(xx[0].decode('utf-8')))
 
 @st.cache
 @st.experimental_memo
