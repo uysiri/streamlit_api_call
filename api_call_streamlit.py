@@ -29,7 +29,9 @@ def reemovNestings(xx):
     for i in xx:
         if type(i) == list:
             reemovNestings(xx)
-            return data == xx[0]
+#             return data == xx[0]
+
+df = pd.read_csv(io.StringIO(xx[0].decode('utf-8')))
 
 # @st.cache
 # @st.experimental_memo
@@ -41,5 +43,5 @@ def reemovNestings(xx):
 #             pass
 #         return df
 
-st.dataframe(data)
+st.dataframe(df)
     
