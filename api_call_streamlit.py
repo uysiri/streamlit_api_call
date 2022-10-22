@@ -21,6 +21,8 @@ for input in domain:
         xx = x['body']    
         
 
+@st.experimental_memo
+@st.cache
 def reemovNestings(xx):
     for i in xx:
         if type(i) == list:
@@ -35,3 +37,4 @@ def get_data(data):
         return df
     
 st.dataframe(df)
+    
