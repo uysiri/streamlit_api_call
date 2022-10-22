@@ -36,7 +36,7 @@ def reemovNestings(xx):
 def get_data(data):
         try:
             dt = requests.get(data).content
-        return dt
+            return dt
     
 df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
 st.dataframe(df)
