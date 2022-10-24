@@ -42,12 +42,12 @@ domain = st.text_input('Domain')
 # get_data(data)    
 # df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
 
-@st.experimental_memo
-@st.cache
-def reemovNestings(xx):
-    for i in xx:
-        if type(i) == list:
-            reemovNestings(i)
+# @st.experimental_memo
+# @st.cache
+# def reemovNestings(xx):
+#     for i in xx:
+#         if type(i) == list:
+#             reemovNestings(i)
 
 for input in domain:
     try:
@@ -58,7 +58,7 @@ for input in domain:
 
 if 'body' in x:
     xx=x['body']
-    xx = reemovNestings(xx)
+#     xx = reemovNestings(xx)
     data = xx[0]
 else:
     print('There is no body in x')
