@@ -38,7 +38,7 @@ data = xx[0]
 def get_data(data):
         dt = requests.get(data).content
 #         df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
-         return dt
+        return dt
 get_data(data)    
 df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
     
