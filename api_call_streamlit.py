@@ -9,19 +9,15 @@ from json import loads
 from json import dumps
 import io
 from io import StringIO
+from PIL import Image
+
+imurl = "https://i.imgur.com/BN924DB.png"
+img = Image.open(requests.get(imurl, stream=True).raw)
+st.image(img,width=400)
 
 st.markdown("Input your domain name")
 st.info("For example, if your domain name is pspost.co, enter 'pspost.co' into the box.")
 domain = st.text_input('Domain')
-
-# for input in domain:
-#     try:
-#         url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both'
-#         x = requests.get(url).json()
-#         xx = x['body']
-#     except NameError:
-#         pass
-        
 
 # @st.experimental_memo
 # @st.cache
@@ -42,12 +38,12 @@ domain = st.text_input('Domain')
 # get_data(data)    
 # df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
 
-# @st.experimental_memo
-# @st.cache
-# def reemovNestings(xx):
-#     for i in xx:
-#         if type(i) == list:
-#             reemovNestings(i)
+@st.cache
+@st.experimental_memo
+def get_data(data):
+        dt = requests.get(data).content
+        df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
+        return df
 
 for input in domain:
     try:
@@ -58,20 +54,10 @@ for input in domain:
 
 if 'body' in x:
     xx=x['body']
-#     xx = reemovNestings(xx)
     data = xx[0]
 else:
     print('There is no body in x')
-        
-
-@st.cache
-@st.experimental_memo
-def get_data(data):
-        dt = requests.get(data).content
-        df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
-        return df
-    
-df = get_data(data)
-    
+            
+df = get_data(data)    
 st.dataframe(df)
     
