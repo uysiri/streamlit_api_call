@@ -61,7 +61,7 @@ if 'body' in x:
     xx=x['body']
     data = xx[0]
 else:
-    print('There is no body in x')
+    st.write('There is no body in x')
             
 df = get_data(data)    
 st.dataframe(df)
