@@ -39,11 +39,16 @@ domain = st.text_input('Domain')
 # df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
 
 # @st.cache
+# @st.experimental_memo
+# def get_data(data):
+#         dt = requests.get(data).content
+#         df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
+#         return df
 @st.experimental_memo
 def get_data(data):
         dt = requests.get(data).content
         df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
-        return df
+        return pd.DataFrame(df)
 
 for input in domain:
     try:
