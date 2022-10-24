@@ -31,7 +31,7 @@ def reemovNestings(xx):
             reemovNestings(i)
 
 xx = reemovNestings(xx)
-data = xx[0]
+data == xx[0]
 
 @st.cache
 @st.experimental_memo
