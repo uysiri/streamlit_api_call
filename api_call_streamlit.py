@@ -66,10 +66,10 @@ else:
     st.write('There is no body in x')
     
 @st.cache
-def get_data():
-    dt = requests.get(data).content
-    return pd.read_csv(io.StringIO(dt.decode('utf-8')))
+def get_data(data):
+#     dt = requests.get(data).content
+    return pd.read_csv(data)
             
-df = get_data()    
+df = get_data(data)    
 st.dataframe(df)
     
