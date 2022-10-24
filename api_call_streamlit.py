@@ -46,10 +46,6 @@ domain = st.text_input('Domain')
 #         return df
 # @st.experimental_memo
 
-@st.cache
-def get_data():
-    dt = requests.get(data).content
-    return pd.read_csv(io.StringIO(dt.decode('utf-8')))
 
 # def get_data(data):
 #         dt = requests.get(data).content
@@ -68,6 +64,11 @@ if 'body' in x:
     data = xx[0]
 else:
     st.write('There is no body in x')
+    
+@st.cache
+def get_data():
+    dt = requests.get(data).content
+    return pd.read_csv(io.StringIO(dt.decode('utf-8')))
             
 df = get_data()    
 st.dataframe(df)
