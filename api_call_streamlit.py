@@ -38,7 +38,7 @@ domain = st.text_input('Domain')
 # get_data(data)    
 # df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
 
-@st.cache
+# @st.cache
 @st.experimental_memo
 def get_data(data):
         dt = requests.get(data).content
