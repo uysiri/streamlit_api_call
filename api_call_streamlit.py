@@ -57,9 +57,9 @@ def get_data(data):
 #     dt = requests.get(data).content
     return pd.read_csv(data)
 
-for input in domain:
+for x in domain:
     try:
-        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both'
+        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + x + '&format=both'
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
@@ -72,6 +72,7 @@ for input in domain:
 # else:
 #     st.write('There is no body in x')
     
+df = get_data(data)
 st.json(x)
 st.dataframe(df.head(50))
    
