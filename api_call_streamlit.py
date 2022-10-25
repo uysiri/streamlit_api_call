@@ -52,12 +52,19 @@ domain = st.text_input('Domain')
 #         df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
 #         return pd.DataFrame(df)
 
+@st.cache
+def get_data(data):
+#     dt = requests.get(data).content
+    return pd.read_csv(data)
+
 for input in domain:
     try:
         url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both'
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
+        df = get_data(data) 
+        st.dataframe(df.head(50))
     except NameError:
         pass
 
@@ -67,11 +74,8 @@ for input in domain:
 # else:
 #     st.write('There is no body in x')
     
-# @st.cache
-def get_data(data):
-#     dt = requests.get(data).content
-    return pd.read_csv(data)
+
             
-df = get_data(data)    
-st.dataframe(df.head(50))
+   
+# st.dataframe(df.head(50))
     
