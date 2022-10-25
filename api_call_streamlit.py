@@ -71,5 +71,5 @@ def get_data(data):
     return pd.read_csv(data)
             
 df = get_data(data)    
-st.write(df)
+st.table(df)
     
