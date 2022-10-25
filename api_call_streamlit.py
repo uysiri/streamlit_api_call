@@ -59,7 +59,7 @@ def get_data(data):
 
 for input in domain:
     try:
-        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + 'domain' + '&format=both'
+        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + 'pspost.co' + '&format=both'
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
