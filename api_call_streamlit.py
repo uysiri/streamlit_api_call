@@ -67,7 +67,7 @@ for input in domain:
 # else:
 #     st.write('There is no body in x')
     
-@st.cache
+# @st.cache
 def get_data(data):
 #     dt = requests.get(data).content
     return pd.read_csv(data)
