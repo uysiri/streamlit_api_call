@@ -57,9 +57,9 @@ def get_data(data):
 #     dt = requests.get(data).content
     return pd.read_csv(data)
 
-for x in domain:
+for input in domain:
     try:
-        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + x + '&format=both'
+        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + 'domain' + '&format=both'
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
