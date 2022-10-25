@@ -56,14 +56,16 @@ for input in domain:
     try:
         url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both'
         x = requests.get(url).json()
+        xx=x['body']
+        data = xx[0]
     except NameError:
         pass
 
-if 'body' in x:
-    xx=x['body']
-    data = xx[0]
-else:
-    st.write('There is no body in x')
+# if 'body' in x:
+#     xx=x['body']
+#     data = xx[0]
+# else:
+#     st.write('There is no body in x')
     
 @st.cache
 def get_data(data):
