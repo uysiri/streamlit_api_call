@@ -63,8 +63,6 @@ for input in domain:
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
-        df = get_data(data) 
-        st.dataframe(df.head(50))
     except NameError:
         pass
 
@@ -74,8 +72,8 @@ for input in domain:
 # else:
 #     st.write('There is no body in x')
     
-
-            
+st.json(x)
+st.dataframe(df.head(50))
    
 # st.dataframe(df.head(50))
     
