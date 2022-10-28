@@ -47,10 +47,13 @@ if domain:
 #     data = xx[0]
 # else:
 #     st.write('There is no body in x')
-    
-df = get_data(data)
-st.json(x)
-st.dataframe(df.head(50))
+ 
+if data:
+    df = get_data(data)
+    st.json(x)
+    st.dataframe(df.head(50))
+else:
+    st.write("Get Started!")
    
 # st.dataframe(df.head(50))
     
