@@ -27,8 +27,6 @@ def get_data(data):
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
-    
-        st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
 
 domain = st.text_input('Domain')
 # domain = 'sageseo.ai'
@@ -42,5 +40,6 @@ if domain:
         st.json(x)
         st.dataframe(df.head(50))
         csv = convert_df(df)
+        st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
     except NameError:
         pass
