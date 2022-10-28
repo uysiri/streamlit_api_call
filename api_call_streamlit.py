@@ -39,7 +39,7 @@ if domain:
         data = xx[0]
         df = get_data(data)
         st.json(x)
-        st.dataframe(df.head())
+        st.dataframe(df)
         csv = convert_df(df)
         st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
     except NameError:
