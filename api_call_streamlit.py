@@ -16,7 +16,7 @@ img = Image.open(requests.get(imurl, stream=True).raw)
 st.image(img,width=400)
 
 st.markdown("Input your domain name")
-st.info("For example, if your domain name is pspost.co, enter 'pspost.co' into the box.")
+st.info("For example, if your domain name is sageseo.ai, enter sageseo.ai into the box.")
 
 
 
