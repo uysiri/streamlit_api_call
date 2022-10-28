@@ -21,8 +21,14 @@ st.info("For example, if your domain name is sageseo.ai, enter sageseo.ai into t
 
 @st.cache
 def get_data(data):
-#     dt = requests.get(data).content
     return pd.read_csv(data)
+
+@st.cache
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
+
+    
+        st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
 
 domain = st.text_input('Domain')
 # domain = 'sageseo.ai'
@@ -35,6 +41,8 @@ if domain:
         df = get_data(data)
         st.json(x)
         st.dataframe(df.head(50))
+        csv = convert_df(df)
+        st.download_button(label="Download Your Ranked Keywords", data=csv, file_name='sample_df.csv', mime='text/csv',)
     except NameError:
         pass
 
