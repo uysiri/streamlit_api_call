@@ -44,5 +44,3 @@ if domain:
         csv = convert_df(df)
     except NameError:
         pass
-st.download_button(label="Download Your Ranked Keywords", data=csv, file_name='sample_df.csv', mime='text/csv',)
-    
