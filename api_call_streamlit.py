@@ -13,7 +13,7 @@ from PIL import Image
 
 imurl = "https://i.imgur.com/BN924DB.png"
 img = Image.open(requests.get(imurl, stream=True).raw)
-st.image(img,width=500)
+st.image(img,width=300)
 
 
 st.title('What Keywords Are You Ranked For?')
