@@ -42,8 +42,7 @@ if domain:
         st.json(x)
         st.dataframe(df.head(50))
         csv = convert_df(df)
-        st.download_button(label="Download Your Ranked Keywords", data=csv, file_name='sample_df.csv', mime='text/csv',)
     except NameError:
         pass
-
+st.download_button(label="Download Your Ranked Keywords", data=csv, file_name='sample_df.csv', mime='text/csv',)
     
