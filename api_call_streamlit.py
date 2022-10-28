@@ -15,16 +15,9 @@ imurl = "https://i.imgur.com/BN924DB.png"
 img = Image.open(requests.get(imurl, stream=True).raw)
 st.image(img,width=400)
 
-st.markdown("Input your domain name")
+st.title('What Keywords Are You Ranked For?')
+st.markdown("Find out by entering your domain name into the box below!")
 st.info("For example, if your domain name is sageseo.ai, enter sageseo.ai into the box.")
-
-
-
-
-# def get_data(data):
-#         dt = requests.get(data).content
-#         df = pd.read_csv(io.StringIO(dt.decode('utf-8')))
-#         return pd.DataFrame(df)
 
 @st.cache
 def get_data(data):
@@ -45,18 +38,4 @@ if domain:
     except NameError:
         pass
 
-# if 'body' in x:
-#     xx=x['body']
-#     data = xx[0]
-# else:
-#     st.write('There is no body in x')
- 
-# if data:
-#     df = get_data(data)
-#     st.json(x)
-#     st.dataframe(df.head(50))
-# else:
-#     st.write("Get Started!")
-   
-# st.dataframe(df.head(50))
     
