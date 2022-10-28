@@ -39,6 +39,9 @@ if domain:
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
+        df = get_data(data)
+        st.json(x)
+        st.dataframe(df.head(50))
     except NameError:
         pass
 
@@ -48,12 +51,12 @@ if domain:
 # else:
 #     st.write('There is no body in x')
  
-if data:
-    df = get_data(data)
-    st.json(x)
-    st.dataframe(df.head(50))
-else:
-    st.write("Get Started!")
+# if data:
+#     df = get_data(data)
+#     st.json(x)
+#     st.dataframe(df.head(50))
+# else:
+#     st.write("Get Started!")
    
 # st.dataframe(df.head(50))
     
