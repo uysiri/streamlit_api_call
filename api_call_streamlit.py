@@ -78,5 +78,3 @@ elif domain and limit == '1000':
         st.dataframe(df)
         csv = convert_df(df)
         st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
-    except NameError:
-        pass
