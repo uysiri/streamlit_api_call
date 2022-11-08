@@ -29,7 +29,7 @@ def convert_df(df):
     return df.to_csv().encode('utf-8')
 
 
-domain = st.text_input('Domain')
+# domain = st.text_input('Domain')
 limit = st.radio(
     "What is the maximum number of ranked keywords you want to return?",
     ('10', '100', '1000'))
@@ -42,6 +42,8 @@ if limit == '1000':
     st.write('You selected 1000.')
 else:
     st.write("You didn't select comedy.")
+    
+domain = st.text_input('Domain')
 if domain:
     try:
         url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=1000'
