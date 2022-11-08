@@ -36,7 +36,7 @@ domain = st.text_input('Domain')
 limit = st.text_input('What is the maximum number of ranked keywords you want to return?')
 if domain and limit:
     try:
-        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=' + limit'
+        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=' + limit '
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
