@@ -33,9 +33,9 @@ domain = st.text_input('Domain')
 limit = st.radio(
     "What is the maximum number of ranked keywords you want to return?",
     ('10', '100', '1000'))
-if domain and limit == '10':
+if domain:
     try:
-        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=10'
+        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=1000'
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
@@ -44,7 +44,10 @@ if domain and limit == '10':
         for column in df.columns:
             if df[column].dtype == 'float64':
                 df[column] = df[column].astype(int)
+        st.json(x)
         st.write(len(df)-1)
         st.dataframe(df)
         csv = convert_df(df)
         st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
+    except NameError:
+        pass
