@@ -39,6 +39,9 @@ if domain:
         data = xx[0]
         df = get_data(data)
         df.fillna(0, inplace=True)
+        for column in df.columns:
+            if df[column].dtype == 'float64':
+                df[column] = df[column].astype(int)
         st.json(x)
         st.dataframe(df)
         csv = convert_df(df)
