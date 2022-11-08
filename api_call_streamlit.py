@@ -28,23 +28,60 @@ def get_data(data):
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
-
-# domain = st.text_input('Domain')
+    
+domain = st.text_input('Domain')
 limit = st.radio(
     "What is the maximum number of ranked keywords you want to return?",
     ('10', '100', '1000'))
-
-if limit == '10':
-    st.write('You selected 10.')
-if limit == '100':
-    st.write('You selected 100.')
-if limit == '1000':
-    st.write('You selected 1000.')
-else:
-    st.write("You didn't select comedy.")
-    
-domain = st.text_input('Domain')
+# if domain:
+#     try:
+#         url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=1000'
+#         x = requests.get(url).json()
+#         xx=x['body']
+#         data = xx[0]
+#         df = get_data(data)
+#         df.fillna(0, inplace=True)
+#         for column in df.columns:
+#             if df[column].dtype == 'float64':
+#                 df[column] = df[column].astype(int)
+#         st.write(len(df)-1)
+#         st.dataframe(df)
+#         csv = convert_df(df)
+#         st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
+#     except NameError:
+#         pass
 if domain:
+if limit == '10':
+    try:
+        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=10'
+        x = requests.get(url).json()
+        xx=x['body']
+        data = xx[0]
+        df = get_data(data)
+        df.fillna(0, inplace=True)
+        for column in df.columns:
+            if df[column].dtype == 'float64':
+                df[column] = df[column].astype(int) 
+        st.write(len(df)-1)
+        st.dataframe(df)
+        csv = convert_df(df)
+        st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
+if limit == '100':
+    try:
+        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=100'
+        x = requests.get(url).json()
+        xx=x['body']
+        data = xx[0]
+        df = get_data(data)
+        df.fillna(0, inplace=True)
+        for column in df.columns:
+            if df[column].dtype == 'float64':
+                df[column] = df[column].astype(int) 
+        st.write(len(df)-1)
+        st.dataframe(df)
+        csv = convert_df(df)
+        st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
+if limit == '1000':
     try:
         url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=1000'
         x = requests.get(url).json()
@@ -54,10 +91,10 @@ if domain:
         df.fillna(0, inplace=True)
         for column in df.columns:
             if df[column].dtype == 'float64':
-                df[column] = df[column].astype(int)
+                df[column] = df[column].astype(int) 
         st.write(len(df)-1)
         st.dataframe(df)
         csv = convert_df(df)
         st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
-    except NameError:
-        pass
+except NameError:
+    pass
