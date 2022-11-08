@@ -30,9 +30,14 @@ def convert_df(df):
 
 
 domain = st.text_input('Domain')
-agree = st.checkbox('I agree')
-if agree:
-    st.write('Great!')
+limit = st.radio(
+    "What is the maximum number of ranked keywords you want to return?",
+    ('10', '100', '1000'))
+
+if limit == '100':
+    st.write('You selected comedy.')
+else:
+    st.write("You didn't select comedy.")
 # domain = 'sageseo.ai'
 if domain:
     try:
