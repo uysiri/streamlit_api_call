@@ -35,7 +35,7 @@ limit = st.radio(
     ('10', '100', '1000'))
 if domain:
     try:
-        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=1000'
+        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=100'
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
@@ -44,7 +44,6 @@ if domain:
         for column in df.columns:
             if df[column].dtype == 'float64':
                 df[column] = df[column].astype(int)
-        st.json(x)
         st.write(len(df)-1)
         st.dataframe(df)
         csv = convert_df(df)
