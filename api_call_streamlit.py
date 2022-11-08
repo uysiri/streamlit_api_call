@@ -44,7 +44,7 @@ if domain:
         for column in df.columns:
             if df[column].dtype == 'float64':
                 df[column] = df[column].astype(int)
-        st.write(len(df)-1)
+        st.write("Number of Ranked Keywords Returned:",len(df)-1)
         st.dataframe(df)
         csv = convert_df(df)
         st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
