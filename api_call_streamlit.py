@@ -30,13 +30,12 @@ def convert_df(df):
 
     
 domain = st.text_input('Domain')
-# limit = st.radio(
-#     "What is the maximum number of ranked keywords you want to return?",
-#     ('10', '100', '1000'))
-limit = st.text_input('What is the maximum number of ranked keywords you want to return?')
-if domain and limit:
+limit = st.radio(
+    "What is the maximum number of ranked keywords you want to return?",
+    ('10', '100', '1000'))
+if domain and limit == '10':
     try:
-        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=' + limit '
+        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=10'
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
