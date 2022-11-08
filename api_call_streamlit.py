@@ -33,11 +33,12 @@ domain = st.text_input('Domain')
 # domain = 'sageseo.ai'
 if domain:
     try:
-        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both'
+        url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=1000'
         x = requests.get(url).json()
         xx=x['body']
         data = xx[0]
         df = get_data(data)
+        df.fillna(0, inplace=True)
         st.json(x)
         st.dataframe(df)
         csv = convert_df(df)
