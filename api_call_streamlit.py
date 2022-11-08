@@ -48,8 +48,8 @@ if domain and limit == '10':
         st.dataframe(df)
         csv = convert_df(df)
         st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
-   except NameError:
-    pass
+    except NameError:
+        pass
 
 if domain and limit == '100':
     try:
