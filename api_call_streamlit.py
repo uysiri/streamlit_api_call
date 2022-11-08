@@ -30,6 +30,9 @@ def convert_df(df):
 
 
 domain = st.text_input('Domain')
+agree = st.checkbox('I agree')
+if agree:
+    st.write('Great!')
 # domain = 'sageseo.ai'
 if domain:
     try:
