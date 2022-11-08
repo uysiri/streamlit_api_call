@@ -48,7 +48,7 @@ if domain and limit == '10':
         st.dataframe(df)
         csv = convert_df(df)
         st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
-elif domain and limit == '100':
+if domain and limit == '100':
     try:
         url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=100'
         x = requests.get(url).json()
