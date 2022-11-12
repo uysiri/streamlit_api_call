@@ -17,8 +17,7 @@ st.image(img,width=300)
 
 
 st.title('What Keywords Are You Ranked For?')
-st.markdown("Find out by entering your domain name into the box below!")
-st.info("For example, if your domain name is sageseo.ai, enter sageseo.ai into the box.")
+st.markdown("Select a keyword limit and enter your domain name into the box below!")
 
 @st.cache
 def get_data(data):
@@ -30,9 +29,10 @@ def convert_df(df):
 
 limit = st.radio(
     "What is the maximum number of ranked keywords you want to return?",
-    ('10', '100', '1000'))    
+    ('10', '100', '1000'))
+st.info("For example, 1000 will return **up to** 1000 of your top ranked keywords by rank.")
 domain = st.text_input('Domain')
-
+st.info("For example, if your domain name is sageseo.ai, enter sageseo.ai into the box.")
 if (domain) and (limit == '10'):
     url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=10'
     x = requests.get(url).json()
