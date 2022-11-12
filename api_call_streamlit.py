@@ -32,7 +32,7 @@ limit = st.radio(
     ('10', '100', '1000'))
 st.info("For example, 1000 will return **up to** 1000 of your top ranked keywords by rank.")
 domain = st.text_input('Domain')
-st.info("For example, if your domain name is sageseo.ai, enter sageseo.ai into the box.")
+st.info("For example, if your domain name is **sageseo.ai**, enter **sageseo.ai** into the box.")
 if (domain) and (limit == '10'):
     url = 'https://b3z7u9yhxl.execute-api.us-east-1.amazonaws.com/dev/keywords/ranked?domain=' + domain + '&format=both&limit=10'
     x = requests.get(url).json()
@@ -84,6 +84,7 @@ elif (domain) and (limit == '1000'):
             df[column] = df[column].astype(int) 
     st.write("Number of Ranked Keywords Returned:",len(df)-1)
     st.write("Cost of API Call:",newstr.split(',', 1)[0])
+    st.markdown("Your Ranked Keywords")
     st.dataframe(df)
     csv = convert_df(df)
     st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
