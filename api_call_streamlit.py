@@ -98,7 +98,8 @@ if domain and limit == '10':
                 st.write(len(df)-1)
                 st.dataframe(df)
                 csv = convert_df(df)
-                st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
-                
+                st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)   
+            else:
+                st.write("make input")
 # except NameError:
 #     pass
