@@ -41,13 +41,14 @@ if domain:
         data = xx[0]
         w = xx[1]
         string = ",".join(str(e) for e in w)
+        newstr = string[9:]
         df = get_data(data)
         df.fillna(0, inplace=True)
         for column in df.columns:
             if df[column].dtype == 'float64':
                 df[column] = df[column].astype(int)
         st.write("Number of Ranked Keywords Returned:",len(df)-1)
-        st.write(string[2:15])
+        st.write("Cost of API Call:",newstr.split(',', 1)[0])
         st.dataframe(df)
         csv = convert_df(df)
         st.download_button(label="Download data as CSV", data=csv, file_name='sample_df.csv', mime='text/csv',)
